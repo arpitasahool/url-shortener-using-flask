@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <a class="nav-link" href="{{url_for('index')}}">Signup</a>
+    {% endblock %}
+    {% block body %}
+<div class="container text-center" style="width: 320px; margin-top: 10%;">
+    <form class="form-signin" action="" method="post">
+      <h3 class="h3 mb-3 font-weight-normal" style='color:orange'>Log in</h3>
+            {{ form.username(class='form-control', placeholder='Username', style='margin-bottom:7%;') }}
+            {{ form.password(class='form-control', placeholder='Password') }}
+            {% if msg %}
+            <div class="alert alert-danger" style="margin-top: 10%;" role="alert">
+            {{msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            </div>
+            {% endif %}
+      <button style="margin-top: 10%;background-color:orange" class="btn btn-lg btn-primary btn-block" type="submit"><h3 style='color:black'>Log in</h3></button>
+
+    </form>
+</div>
+    {{ form.csrf_token }}
+
+ {% endblock %}
